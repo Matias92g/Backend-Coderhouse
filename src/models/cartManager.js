@@ -54,7 +54,7 @@ export class CartManager {
             if (existProd) {
                 existProd.quantity = parseInt(existProd.quantity) + 1;
             } else {
-                const newProduct = { id: prods.id, quantity: parseInt(quantity) };
+                const newProduct = { id: prods.id, quantity: 1 };
                 cart.products.push(newProduct);
             }
             await fs.writeFile(this.path, JSON.stringify(cart, null, 2));

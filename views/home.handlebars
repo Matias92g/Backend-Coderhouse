@@ -1,4 +1,17 @@
-<p>Hola Mundo!!!!!!!!</p>
+<h1 class="container text-center text-success">Bienvenido a Tienda-C</h1>
+<div class="container d-flex justify-center">
+  {{#each products}}
+    <div class="card p-2 m-1 mt-2" style="width: 18rem;">
+      <img src={{this.thumbnail}} class="card-img" alt="Botin de futbol" />
+      <div class="card-body">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.description}}</p>
+        <p class="card-text">${{this.price}}</p>
+        <button class="btn btn-success">Agregar al carrito</button>
+      </div>
+    </div>
+  {{/each}}
+</div>
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="js/index.js"></script>
+<script src="/js/index.js"></script>
