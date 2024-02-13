@@ -4,7 +4,7 @@ import { join, dirname } from "path";
 import crypto from "crypto";
 import { ProductManager } from "./productManager.js";
 
-const productCart = new ProductManager('./products.json');
+const productCart = new ProductManager('./data/products.json');
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 

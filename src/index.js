@@ -1,16 +1,18 @@
 import express from "express";
 import handlerbars from "express-handlebars";
-import homeRouter from "./routes/home.routes.js";
-import routerProd from "./routes/products.routes.js";
-import routerCart from "./routes/carts.routes.js";
-import realTimeRouter from "./routes/realTimeProducts.routes.js";
+import homeRouter from "./routes/fs/home.routes.js";
+import routerProd from "./routes/fs/products.routes.js";
+import routerProdDb from "./routes/db.routes/products.routes.js";
+import routerCart from "./routes/fs/carts.routes.js";
+import realTimeRouter from "./routes/fs/realTimeProducts.routes.js";
 import { fileURLToPath } from "url";
 import path from "path";
 import http from "http";
 import { Server } from "socket.io";
-import { ProductManager } from "./models/productManager.js";
+import { ProductManager } from "./dao/fileSystem/productManager.js";
+import Database from "./dao/db/index.db.js";
 
-const PORT = 8080
+const PORT = 8080 || process.env.PORT
 const app = express()
 const server = http.createServer(app)
 const __filename = fileURLToPath(import.meta.url);
@@ -35,28 +37,34 @@ app.use('/api/products', routerProd)
 app.use('/api/carts', routerCart)
 app.use('/home', homeRouter)
 app.use('/realTimeProducts', realTimeRouter)
+app.use('/prod', routerProdDb )
 
 
 // Socket
 const io = new Server(server)
+
 io.on('connection', (socket) => {
     console.log('Cliente conectado')
     socket.on("getProducts", async () => {
         const products = await pm.getProducts();
-        io.emit("prodsData", products);
+        console.log(products)
+        socket.emit("prodsData", products);
     });
     socket.on("newProduct", async (newProd) => {
         console.log(newProd);
         await pm.addProduct(newProd);
         const products = await pm.getProducts();
-        io.emit("prodsData", products);
+        socket.emit("prodsData", products);
     });
     socket.on("removeProduct", async (prodId) => {
         await pm.deleteProduct(prodId);
-        io.emit("productRemoved", prodId);
+        socket.emit("productRemoved", prodId);
     });
 
 })
 
 //Servidor Local
-server.listen(PORT, () => console.log(`Server run in port ${PORT}`))
+server.listen(PORT, () => {
+    console.log(`Server run in port ${PORT}`)
+    Database.connect()
+})

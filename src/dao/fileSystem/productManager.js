@@ -7,7 +7,7 @@ export class ProductManager {
     }
 
     async getProducts() {
-        const prods = JSON.parse(await fs.readFile(this.path), 'utf-8', null, 2)
+        const prods = JSON.parse(await fs.readFile('./data/products.json'), 'utf-8', null, 2)
         return prods
     }
 
@@ -17,9 +17,8 @@ export class ProductManager {
         return prod
     }
 
-    async addProduct(prod) {
+    async addProduct(prod,id) {
         const prods = JSON.parse(await fs.readFile(this.path), 'utf-8', null, 2)
-        console.log(prods)
         const existProd = prods.find(producto => producto.id === id)
         if (existProd) {
             return false

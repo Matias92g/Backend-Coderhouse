@@ -3,7 +3,7 @@ const form = document.getElementById("newProductForm");
 const productsBody = document.getElementById("productsBody");
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  e.preventDefault(); 
   const datForm = new FormData(e.target);
   const prod = Object.fromEntries(datForm);
   socket.emit("newProduct", prod);

@@ -8,18 +8,7 @@
     "category": "Futbol",
     "status": "true",
     "thumbnails": [],
-    "id": "c191f446a092956992bec982e35ad04c"
-  },
-  {
-    "title": "Botines de futbol",
-    "description": "Adidas Predator",
-    "price": 125000,
-    "stock": 30,
-    "code": "BA001",
-    "category": "Futbol",
-    "status": "true",
-    "thumbnails": [],
-    "id": "73c5add1246bac5d9590912a8a580531"
+    "id": "9d6ec2f2f93f38e7caa96935c469f5ec"
   },
   {
     "title": "Botines de futbol",
@@ -30,7 +19,7 @@
     "category": "Futbol",
     "status": "true",
     "thumbnails": [],
-    "id": "c191f446a092956992bec982e35ad04c"
+    "id": "b25ba8d764717c32873c774f2fbfc31a"
   },
   {
     "title": "Botines de futbol",
@@ -41,7 +30,7 @@
     "category": "Futbol",
     "status": "true",
     "thumbnails": [],
-    "id": "c191f446a092956992bec982e35ad04c"
+    "id": "8d4775f528d5adef56e7d5d27736444b"
   },
   {
     "title": "Botines de futbol",
@@ -52,17 +41,6 @@
     "category": "Futbol",
     "status": "true",
     "thumbnails": [],
-    "id": "c191f446a092956992bec982e35ad04c"
-  },
-  {
-    "title": "Botines de futbol",
-    "description": "Adidas Predator",
-    "price": 125000,
-    "stock": 10,
-    "code": "BA001",
-    "category": "Futbol",
-    "status": "true",
-    "thumbnails": [],
-    "id": "c191f446a092956992bec982e35ad04c"
+    "id": "d0185878491bf64327364ea1591c869b"
   }
 ]
