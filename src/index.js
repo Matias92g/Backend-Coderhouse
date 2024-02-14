@@ -1,7 +1,7 @@
 import express from "express";
 import handlerbars from "express-handlebars";
 import homeRouter from "./routes/fs/home.routes.js";
-import routerProd from "./routes/fs/products.routes.js";
+//import routerProd from "./routes/fs/products.routes.js";
 import routerProdDb from "./routes/db.routes/products.routes.js";
 import routerCart from "./routes/fs/carts.routes.js";
 import realTimeRouter from "./routes/fs/realTimeProducts.routes.js";
@@ -33,7 +33,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 /// Routes 
-app.use('/api/products', routerProd)
+//app.use('/api/products', routerProd)
 app.use('/api/carts', routerCart)
 app.use('/home', homeRouter)
 app.use('/realTimeProducts', realTimeRouter)
